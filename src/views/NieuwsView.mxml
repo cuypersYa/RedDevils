@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Nieuws"
+		creationComplete="view1_creationCompleteHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.rpc.events.ResultEvent;
+			
+			protected function duivelsFeed_resultHandler(event:ResultEvent):void
+			{
+				// TODO Auto-generated method stub
+				acDuivelsFeed = event.result.rss.channel.item;
+				//acBelgianfootballFeed= event.result.rss.channel.item;
+				newsList.dataProvider=acDuivelsFeed ;
+				//BelgianFootball.dataProvider= acBelgianfootballFeed;
+				
+				//newsList.dataProvider=acDuivelsFeed;
+				
+				
+			}
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// Verzend feed
+				duivelsFeed.send();
+				//belgianfootballFeed.send();
+				//acDuivelsFeed=title;
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<s:HTTPService id="duivelsFeed" url="http://www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie"
+					   result="duivelsFeed_resultHandler(event)" resultFormat="object"
+					   />
+		<s:ArrayCollection id="acDuivelsFeed" />
+		<!--<s:HTTPService id="belgianfootballFeed" url="http://fulltextrssfeed.com/www.belgianfootball.be/nl/static/cached_ajax/kbvb_feed/105"
+					   result="duivelsFeed_resultHandler(event)" resultFormat="object"
+					   />
+		<s:ArrayCollection id="acBelgianfootballFeed"/>-->
+	</fx:Declarations>
+	
+	<!--<s:List width="100%" id="newsList" dataProvider="{acDuivelsFeed.title}"/>-->
+	<s:DataGrid id="newsList" width="100%" height="100%">
+		<s:columns>
+			<s:ArrayList >
+				
+				<s:GridColumn  dataField="title" headerText=""/>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>
+	<!--<s:DataGrid id="BelgianFootball" width="100%" height="100%">
+		<s:columns>
+			<s:ArrayList >
+				
+				<s:GridColumn  dataField="title" headerText=""/>
+			</s:ArrayList>
+		</s:columns>
+	</s:DataGrid>-->
+	
+	
+</s:View>
