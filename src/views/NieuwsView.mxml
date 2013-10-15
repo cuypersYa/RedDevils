@@ -13,13 +13,10 @@
 			
 			protected function duivelsFeed_resultHandler(event:ResultEvent):void
 			{
-				// TODO Auto-generated method stub
+
 				acDuivelsFeed = event.result.rss.channel.item;
-				//acBelgianfootballFeed= event.result.rss.channel.item;
 				newsList.dataProvider=acDuivelsFeed ;
-				//BelgianFootball.dataProvider= acBelgianfootballFeed;
 				
-				//newsList.dataProvider=acDuivelsFeed;
 				
 				
 			}
@@ -28,8 +25,7 @@
 			{
 				// Verzend feed
 				duivelsFeed.send();
-				//belgianfootballFeed.send();
-				//acDuivelsFeed=title;
+
 			}
 			
 		]]>
@@ -39,13 +35,9 @@
 					   result="duivelsFeed_resultHandler(event)" resultFormat="object"
 					   />
 		<s:ArrayCollection id="acDuivelsFeed" />
-		<!--<s:HTTPService id="belgianfootballFeed" url="http://fulltextrssfeed.com/www.belgianfootball.be/nl/static/cached_ajax/kbvb_feed/105"
-					   result="duivelsFeed_resultHandler(event)" resultFormat="object"
-					   />
-		<s:ArrayCollection id="acBelgianfootballFeed"/>-->
+		
 	</fx:Declarations>
 	
-	<!--<s:List width="100%" id="newsList" dataProvider="{acDuivelsFeed.title}"/>-->
 	<s:DataGrid id="newsList" width="100%" height="100%">
 		<s:columns>
 			<s:ArrayList >
@@ -54,14 +46,7 @@
 			</s:ArrayList>
 		</s:columns>
 	</s:DataGrid>
-	<!--<s:DataGrid id="BelgianFootball" width="100%" height="100%">
-		<s:columns>
-			<s:ArrayList >
-				
-				<s:GridColumn  dataField="title" headerText=""/>
-			</s:ArrayList>
-		</s:columns>
-	</s:DataGrid>-->
+	
 	
 	
 </s:View>
