@@ -47,17 +47,18 @@
 		<s:ArrayCollection id="acDuivelsFeed" />
 		
 	</fx:Declarations>
+	<s:List id="newsList" width="320"  labelField="title"/>
 	
-	<s:DataGrid id="newsList" width="100%" height="100%" gridClick="openRssAt(event.rowIndex)" >
+	<!--<s:DataGrid id="newsList" width="100%" height="100%" gridClick="openRssAt(event.rowIndex)" >
 		<s:columns>
 			<s:ArrayList >
 				
 				<s:GridColumn  dataField="title" headerText=""/>
 				<s:GridColumn dataField="description" headerText=""/>
-				<!--<s:GridColumn dataField="guid" headerText=""/>-->
+				
 			</s:ArrayList>
 		</s:columns>
-	</s:DataGrid>
+	</s:DataGrid>-->
 	
 	
 	
