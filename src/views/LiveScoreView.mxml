@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Nieuws"
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Livescore"
 		creationComplete="view1_creationCompleteHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx">
 	<s:layout>
 		<s:VerticalLayout/>
 	</s:layout>
-
+	
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
@@ -15,7 +15,7 @@
 			
 			protected function duivelsFeed_resultHandler(event:ResultEvent):void
 			{
-
+				
 				acDuivelsFeed = event.result.rss.channel.item;
 				newsList.dataProvider=acDuivelsFeed ;
 				
@@ -27,7 +27,7 @@
 			{
 				// Verzend feed
 				duivelsFeed.send();
-
+				
 			}
 			
 			
@@ -41,7 +41,7 @@
 		]]>
 	</fx:Script>
 	<fx:Declarations>
-		<s:HTTPService id="duivelsFeed" url="http://www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie"
+		<s:HTTPService id="duivelsFeed" url="http://www.scorespro.com/rss2/live-soccer.xml"
 					   result="duivelsFeed_resultHandler(event)" resultFormat="object"
 					   />
 		<s:ArrayCollection id="acDuivelsFeed" />

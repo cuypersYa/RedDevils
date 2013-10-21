@@ -12,4 +12,6 @@
 					 fontSize="12" title="Kalender"/>
 	<s:ViewNavigator width="100%" height="100%" label="Klassement" firstView="views.KlassementView"
 					 fontSize="12" title="Klassement"/>
+	<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
+					 title="LiveScoreView"/>
 </s:TabbedViewNavigatorApplication>
