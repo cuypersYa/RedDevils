@@ -1,7 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Kalender">
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Kalender"
+		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Script>
+		<![CDATA[
+			import mx.rpc.events.ResultEvent;
+			
+			import spark.events.IndexChangeEvent;
+			import spark.events.ViewNavigatorEvent;
+			
+			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
+			{
+				// TODO Auto-generated method stub
+				newsChannels.send();
+			}
+			
+			protected function newsChannels_resultHandler(event:ResultEvent):void
+			{
+				// TODO Auto-generated method stub
+				newsList.dataProvider= event.result.news.channel;
+				
+			}
+			
+			protected function newsList_changeHandler(event:IndexChangeEvent):void
+			{
+				// ga naar volgende view en geef channelID mee!!
+				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
+				
+			}
+			
+		]]>
+	</fx:Script>
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<s:HTTPService id="newsChannels"
+					   url="http://yannickcuypers.be/connectDB/select_channels.php"
+					   result="newsChannels_resultHandler(event)"/>
+		
 	</fx:Declarations>
+	<s:List id="newsList" change="newsList_changeHandler(event)">
+		<s:itemRenderer>
+			<fx:Component>
+				<s:IconItemRenderer labelField="title" messageField="description"/>
+			</fx:Component>
+		</s:itemRenderer>
+	</s:List>
 </s:View>
