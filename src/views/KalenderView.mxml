@@ -19,6 +19,7 @@
 			{
 				// TODO Auto-generated method stub
 				newsList.dataProvider= event.result.news.channel;
+			
 				
 			}
 			
@@ -28,6 +29,10 @@
 				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
 				
 			}
+			/* protected function getItems(value:Object):String
+			{
+				return data.description + " " + data.score + " "+ data.uit;
+			} */
 			
 		]]>
 	</fx:Script>
@@ -37,10 +42,15 @@
 					   result="newsChannels_resultHandler(event)"/>
 		
 	</fx:Declarations>
-	<s:List id="newsList" change="newsList_changeHandler(event)">
+	
+<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
-				<s:IconItemRenderer labelField="title" messageField="description"/>
+				<s:IconItemRenderer >
+					<s:labelField>description</s:labelField>
+					<s:messageField>score</s:messageField>	
+					<!--hier moet nog de tag: uit/...-->
+				</s:IconItemRenderer>
 			</fx:Component>
 		</s:itemRenderer>
 	</s:List>
