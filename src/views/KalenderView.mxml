@@ -43,15 +43,6 @@
 		
 	</fx:Declarations>
 	
-<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)">
-		<s:itemRenderer>
-			<fx:Component>
-				<s:IconItemRenderer >
-					<s:labelField>description</s:labelField>
-					<s:messageField>score</s:messageField>	
-					<!--hier moet nog de tag: uit/...-->
-				</s:IconItemRenderer>
-			</fx:Component>
-		</s:itemRenderer>
-	</s:List>
+<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KalenderRenderer"/>
+
 </s:View>

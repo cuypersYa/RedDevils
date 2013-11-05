@@ -33,15 +33,16 @@
 	</fx:Script>
 	<fx:Declarations>
 		<s:HTTPService id="newsChannels"
-					   url="http://yannickcuypers.be/connectDB/select_channels.php"
+					   url="http://yannickcuypers.be/connectDB/select_team.php"
 					   result="newsChannels_resultHandler(event)"/>
 		
 	</fx:Declarations>
-	<s:List id="newsList" change="newsList_changeHandler(event)">
+	<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.TeamRenderer"/>
+	<!--<s:List id="newsList" change="newsList_changeHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
 				<s:IconItemRenderer labelField="title" messageField="description"/>
 			</fx:Component>
 		</s:itemRenderer>
-	</s:List>
+	</s:List>-->
 </s:View>
