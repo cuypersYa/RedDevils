@@ -3,43 +3,14 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" title="Klassement">
 	<fx:Script>
 		<![CDATA[
-			import mx.rpc.events.ResultEvent;
-			
-			import spark.events.IndexChangeEvent;
-			import spark.events.ViewNavigatorEvent;
-			
-			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
-			{
-				// TODO Auto-generated method stub
-				newsChannels.send();
-			}
-			
-			protected function newsChannels_resultHandler(event:ResultEvent):void
-			{
-				// TODO Auto-generated method stub
-				newsList.dataProvider= event.result.news.channel;
-				
-				
-			}
-			
-			protected function newsList_changeHandler(event:IndexChangeEvent):void
-			{
-				// ga naar volgende view en geef channelID mee!!
-				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
-				
-			}
-			/* protected function getItems(value:Object):String
-			{
-			return data.description + " " + data.score + " "+ data.uit;
-			} */
+		
 			
 		]]>
 	</fx:Script>
 	
 	<fx:Declarations>
-		<s:HTTPService id="newsChannels"
-					   url="http://yannickcuypers.be/connectDB/select_team.php"
-					   result="newsChannels_resultHandler(event)"/>
+		
 	</fx:Declarations>
-	<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)" itemRenderer=""/>
+	
+	
 </s:View>
