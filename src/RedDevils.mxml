@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
 								  xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160">
+	<fx:Style>
+		@namespace s "library://ns.adobe.com/flex/spark";
+		s|TabbedViewNavigator #tabBar
+		{
+			skinClass: ClassReference("views.skins.TabbedViewNavigatorTabBarSkin");
+		}
+	</fx:Style>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
@@ -16,12 +23,21 @@
 	</fx:Style>
 	<s:ViewNavigator width="100%" height="100%" firstView="views.NieuwsView"
 					 fontSize="12" title="Nieuws" icon="@Embed('images/RDballNY.png')"/>
+<<<<<<< HEAD
 	<s:ViewNavigator width="100%" height="100%" firstView="views.TeamView" fontSize="12"
+=======
+	<s:ViewNavigator width="100%" height="100%" label="Team" firstView="views.TeamView"
+>>>>>>> origin/add-icons
 					 title="Team" icon="@Embed('images/RDdeviNY.png')"/>
 	<s:ViewNavigator width="100%" height="100%" firstView="views.KalenderView"
 					 fontSize="12" title="Kalender" icon="@Embed('images/RDcalendarNY.png')"/>
 	<s:ViewNavigator width="100%" height="100%" firstView="views.KlassementView"
 					 fontSize="12" title="Klassement" icon="@Embed('images/RDmedalNY.png')"/>
+<<<<<<< HEAD
 	<s:ViewNavigator width="100%" height="100%" firstView="views.LiveScoreView"
 					 title="LiveScoreView"/>
+=======
+	<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
+					 title="LiveScoreView" icon="@Embed('images/RDgoalNY.png')"/>
+>>>>>>> origin/add-icons
 </s:TabbedViewNavigatorApplication>
