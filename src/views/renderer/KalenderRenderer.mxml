@@ -6,7 +6,7 @@
 		<s:HGroup>
 
 			<s:Label text="{data.description}"/>
-			<s:Label text="{data.score}"/>
+			<s:Label text="{data.score}" fontWeight="bold"/>
 			<s:Label text="{data.uit}"/>
 			
 		</s:HGroup>
