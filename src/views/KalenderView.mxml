@@ -43,6 +43,6 @@
 		
 	</fx:Declarations>
 	
-<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KalenderRenderer"/>
+<s:List id="newsList" width="90%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KalenderRenderer"/>
 
 </s:View>

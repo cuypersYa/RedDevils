@@ -7,7 +7,7 @@
 		global
 		{
 			font-weight: normal;
-			color: #DC1A1A;
+			color: #000;
 			font-size: 16;
 		}
 	</fx:Style>
