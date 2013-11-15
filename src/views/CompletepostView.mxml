@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="{data.title}"
+		creationComplete="view1_creationCompleteHandler(event)">
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center" paddingBottom="20" paddingTop="20"/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			
+			import mx.events.FlexEvent;
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+			}
+			
+			protected function gaNaarLink(event:MouseEvent):void
+			{
+				var urlReq:URLRequest = new URLRequest(data.link);
+				navigateToURL(urlReq, "_self");
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:VGroup width="90%" height="100%" horizontalAlign="center">
+		
+		<s:Label width="100%" text="{data.description}"/>
+		<s:Label id="link" text="> Source" width="100%"/>
+	</s:VGroup>
+</s:View>
