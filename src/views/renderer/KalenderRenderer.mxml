@@ -3,7 +3,7 @@
 					xmlns:s="library://ns.adobe.com/flex/spark"  >
 	<s:VGroup x="5">
 		<s:Label text=" "/>
-		<s:Label text="{data.title}"/>
+		<s:Label styleName="datum" text="{data.title}"/>
 		<s:HGroup>
 
 			<s:Label text="{data.description}"/>

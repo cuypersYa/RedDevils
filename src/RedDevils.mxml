@@ -3,26 +3,49 @@
 								  xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160">
 	<fx:Style>
 		
-	
+		
+		@namespace s "library://ns.adobe.com/flex/spark";
+		
 		global
 		{
 			font-weight: normal;
 			color: #000;
 			font-size: 16;
+			selection-color: #000000;
+			chrome-color: #FFFFFF;
 		}
+		s|ActionBar #titleDisplay
+		{
+
+			color: #FF0000; /* default color is white */
+			fontSize: 40;
+			
+		}
+		s|ActionBar
+		{
+			chromeColor: #FFF;
+			
+		}
+
+		s|TabbedViewNavigator #tabBar
+		{
+			color: #FF0000;
+			chromeColor: #FFF;
+		} 
+		
 	</fx:Style>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 
-	<s:ViewNavigator width="100%" height="100%" firstView="views.NieuwsView"
-					 fontSize="12" title="Nieuws" icon="@Embed('images/RDballNY.png')"/>
-	<s:ViewNavigator width="100%" height="100%" label="Team" firstView="views.TeamView"
+	<s:ViewNavigator id="menu1" width="100%" height="100%" label="Nieuws" firstView="views.NieuwsView"
+					 title="Nieuws" icon="@Embed('images/RDballNY.png')"/>
+	<s:ViewNavigator id="menu2" width="100%" height="100%" label="Team" firstView="views.TeamView"
 					 title="Team" icon="@Embed('images/RDdeviNY.png')"/>
-	<s:ViewNavigator width="100%" height="100%" firstView="views.KalenderView"
-					 fontSize="12" title="Kalender" icon="@Embed('images/RDcalendarNY.png')"/>
-	<s:ViewNavigator width="100%" height="100%" firstView="views.KlassementView"
-					 fontSize="12" title="Klassement" icon="@Embed('images/RDmedalNY.png')"/>
-	<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
-					 title="LiveScoreView" icon="@Embed('images/RDgoalNY.png')"/>
+	<s:ViewNavigator id="menu3" width="100%" height="100%" label="Kalender" firstView="views.KalenderView"
+					 title="Kalender" icon="@Embed('images/RDcalendarNY.png')"/>
+	<s:ViewNavigator id="menu4" width="100%" height="100%" label="Klassement" firstView="views.KlassementView"
+					 title="Klassement" icon="@Embed('images/RDmedalNY.png')"/>
+	<!--<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
+					 title="LiveScoreView" icon="@Embed('images/RDgoalNY.png')"/>-->
 </s:TabbedViewNavigatorApplication>

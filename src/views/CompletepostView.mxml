@@ -11,9 +11,13 @@
 			
 			import mx.events.FlexEvent;
 			
+			
+			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+				
+				/* StyleableTextField(ti1.textDisplay).htmlText = "TextInput <b>bold</b> <i>italic</i>."; */
 			}
 			
 			protected function gaNaarLink(event:MouseEvent):void
@@ -29,7 +33,7 @@
 	</fx:Declarations>
 	<s:VGroup width="90%" height="100%" horizontalAlign="center">
 		
-		<s:Label width="100%" text="{data.description}"/>
+		<s:Label width="100%" height="100%" text="{data.description}"/>
 		<s:Label id="link" text="> Source" width="100%"/>
 	</s:VGroup>
 </s:View>
