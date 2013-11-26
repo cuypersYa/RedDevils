@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Team"
-		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx">
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Nieuws"
+		creationComplete="view1_creationCompleteHandler(event)">
+	<s:layout>
+		<s:VerticalLayout/>
+	</s:layout>
 	<fx:Script>
 		<![CDATA[
+			import mx.events.FlexEvent;
 			import mx.rpc.events.ResultEvent;
 			
 			import spark.events.IndexChangeEvent;
-			import spark.events.ViewNavigatorEvent;
 			
-			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-				// TODO Auto-generated method stub
-				newsChannels.send();
+				//devblogService.url="http://fulltextrssfeed.com/www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie";
+				devblogService.url="http://yannickcuypers.be/connectDB/select_team.php";
+				devblogService.send();
 			}
 			
-			protected function newsChannels_resultHandler(event:ResultEvent):void
+			protected function devblogService_resultHandler(event:ResultEvent):void
 			{
-				// TODO Auto-generated method stub
-				newsList.dataProvider= event.result.news.channel;
-				
+				devblogList.dataProvider=event.result.news.channel;
 			}
 			
-			protected function newsList_changeHandler(event:IndexChangeEvent):void
+			protected function devblogList_changeHandler(event:IndexChangeEvent):void
 			{
-				// ga naar volgende view en geef channelID mee!!
-				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
-				
+				navigator.pushView(TeamDetailView, List(event.currentTarget).selectedItem);
 			}
+			/* test */
 			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
-		<s:HTTPService id="newsChannels"
-					   url="http://yannickcuypers.be/connectDB/select_team.php"
-					   result="newsChannels_resultHandler(event)"/>
-		
+		<s:HTTPService id="devblogService"
+					   result="devblogService_resultHandler(event)"/>
 	</fx:Declarations>
-	<s:List id="newsList" width="100%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.TeamRenderer"/>
-	<!--<s:List id="newsList" change="newsList_changeHandler(event)">
+	
+	<s:List id="devblogList" height="100%" width="100%" change="devblogList_changeHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
-				<s:IconItemRenderer labelField="title" messageField="description"/>
+				<s:IconItemRenderer label="{data.title}"/>
 			</fx:Component>
 		</s:itemRenderer>
-	</s:List>-->
+	</s:List>
 </s:View>
