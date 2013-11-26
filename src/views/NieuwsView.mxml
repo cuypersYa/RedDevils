@@ -14,8 +14,8 @@
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-				devblogService.url="http://fulltextrssfeed.com/www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie";
-				//devblogService.url="http://www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie";
+				//devblogService.url="http://fulltextrssfeed.com/www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie";
+				devblogService.url="http://www.voetbalkrant.com/nl/rss/nieuws/competities/wk-2014-brazilie";
 				devblogService.send();
 			}
 			

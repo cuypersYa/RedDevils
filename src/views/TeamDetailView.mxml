@@ -42,7 +42,7 @@
 	</s:navigationContent > 
 	<!--test-->
 	<s:VGroup width="90%" horizontalAlign="center">
-		<s:VGroup x="5">
+		<s:VGroup>
 			<s:Image source="{data.image}" />
 			<s:HGroup>
 				
@@ -69,6 +69,6 @@
 		
 		<!--<s:Label width="90%" height="100%" text="{data.description}"/>-->
 		
-		<s:Label id="link" text="> Source" width="100%"/>
+		<s:Label id="link" text=" " width="100%"/>
 	</s:VGroup>
 </s:View>
