@@ -91,16 +91,13 @@
 	</fx:Declarations>
 
 	<s:ViewNavigator id="menu1" width="100%" height="100%" label="Nieuws" firstView="views.NieuwsView"
-<<<<<<< HEAD
-					 title="Nieuws" icon="@Embed('images/RDballNY.png')"/>
-=======
 					 title="Nieuws" icon="@Embed('images/RDballNY.png')">
 		<s:actionContent>
 			<s:Button id="btn_login" label="login" click="login()" visible="true" width="75"/>
 			<s:Button id="btn_logout" label="logout" click="logout()" visible="false" width="0"/>
 		</s:actionContent>
 	</s:ViewNavigator>
->>>>>>> facebookLogin
+
 	<s:ViewNavigator id="menu2" width="100%" height="100%" label="Team" firstView="views.TeamView"
 					 title="Team" icon="@Embed('images/RDdeviNY.png')"/>
 	<s:ViewNavigator id="menu3" width="100%" height="100%" label="Kalender" firstView="views.KalenderView"
