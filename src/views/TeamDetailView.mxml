@@ -61,6 +61,11 @@
 				<s:Label text="Rugnummer: " fontWeight="bold"/>
 				<s:Label text="{data.nummer}"/>
 			</s:HGroup>
+			<s:HGroup>
+				
+					
+				
+			</s:HGroup>
 			
 			
 			

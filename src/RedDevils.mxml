@@ -12,14 +12,15 @@
 			font-weight: normal;
 			color: #000;
 			font-size: 16;
-			selection-color: #000000;
+			selection-color: #FF0000;
 			chrome-color: #FFFFFF;
 		}
 		s|ActionBar #titleDisplay
 		{
 
 			color: #FF0000; /* default color is white */
-			fontSize: 40;
+			chromeColor: #FFF;
+			fontSize: 20;
 			
 		}
 		s|ActionBar
@@ -40,12 +41,48 @@
 			import com.facebook.graph.FacebookMobile;
 			
 			import mx.events.FlexEvent;
+			/*TEST
+			
+			import spark.events.IndexChangeEvent;
+			
+			private var tabHistory : Array;
+			private var isLoadingFromHistory : Boolean;
+			
+			protected function BackBtn(event : MouseEvent) : void
+			{
+				isLoadingFromHistory = true;
+				if (tabHistory.length == 0)
+				{
+					//buttonMode.display = none;
+					trace("You can't go back any further");
+					tabHistory.push(0);
+				}
+				tabbedNavigator.selectedIndex = tabHistory.pop();
+			}
+			
+			
+			
+			private function tabsChangedHandler(event : IndexChangeEvent) : void
+			{
+				if (isLoadingFromHistory)
+				{
+					isLoadingFromHistory = false;
+					return;
+				}
+				tabHistory.push(event.oldIndex);
+				trace(tabHistory);
+			}
+		
+			
+			/*test*/
 			
 			public var loggedIn:Boolean = false;
 			protected function tabbedviewnavigatorapplication1_creationCompleteHandler(event:FlexEvent):void
 			{
 				// TODO Auto-generated method stub
 				FacebookMobile.init("630767130320379",onLogin,null);
+				//tabHistory = [];
+				//tabbedNavigator.addEventListener(IndexChangeEvent.CHANGE, tabsChangedHandler);
 			}
 			
 			protected function login():void 
@@ -92,18 +129,40 @@
 
 	<s:ViewNavigator id="menu1" width="100%" height="100%" label="Nieuws" firstView="views.NieuwsView"
 					 title="Nieuws" icon="@Embed('images/RDballNY.png')">
+		<!--<s:navigationContent>
+			<s:Button click="BackBtn(event)"
+					  label="Back"/>
+		</s:navigationContent>-->
 		<s:actionContent>
 			<s:Button id="btn_login" label="login" click="login()" visible="true" width="75"/>
 			<s:Button id="btn_logout" label="logout" click="logout()" visible="false" width="0"/>
 		</s:actionContent>
+		
+			
+		
 	</s:ViewNavigator>
 
 	<s:ViewNavigator id="menu2" width="100%" height="100%" label="Team" firstView="views.TeamView"
-					 title="Team" icon="@Embed('images/RDdeviNY.png')"/>
+					 title="Team" icon="@Embed('images/RDdeviNY.png')">
+		<!--<s:navigationContent>
+			<s:Button click="BackBtn(event)"
+					  label="Back"/>
+		</s:navigationContent>-->
+		</s:ViewNavigator>
 	<s:ViewNavigator id="menu3" width="100%" height="100%" label="Kalender" firstView="views.KalenderView"
-					 title="Kalender" icon="@Embed('images/RDcalendarNY.png')"/>
+					 title="Kalender" icon="@Embed('images/RDcalendarNY.png')">
+		<!--<s:navigationContent>
+			<s:Button click="BackBtn(event)"
+					  label="Back"/>
+		</s:navigationContent>-->
+	</s:ViewNavigator>
 	<s:ViewNavigator id="menu4" width="100%" height="100%" label="Klassement" firstView="views.KlassementView"
-					 title="Klassement" icon="@Embed('images/RDmedalNY.png')"/>
+					 title="Klassement" icon="@Embed('images/RDmedalNY.png')">
+		<!--<s:navigationContent>
+			<s:Button click="BackBtn(event)"
+					  label="Back"/>
+		</s:navigationContent>-->
+	</s:ViewNavigator>
 	<!--<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
 					 title="LiveScoreView" icon="@Embed('images/RDgoalNY.png')"/>-->
 </s:TabbedViewNavigatorApplication>
