@@ -4,6 +4,7 @@
 	<s:VGroup x="5">
 		<s:HGroup >
 			
+			<s:Label text="{data.rank}" />
 			
 			<s:Label text="{data.description}" />
 			
