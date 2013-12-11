@@ -2,22 +2,15 @@
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
 					xmlns:s="library://ns.adobe.com/flex/spark"   >
 	<s:VGroup x="5">
+		<s:Label text=" "/>
 		<s:HGroup >
-			
-			<s:Label text="{data.rank}" />
-			
-			<s:Label text="{data.description}" />
-			
-			<s:Label text="{data.punten}"/>
-			
+			<s:Label text="{data.rank}" width="20"/>
+		
+			<s:Label text="{data.description}" width="150"/>
+		
+			<s:Label text="{data.punten}" width="40"/>
 		</s:HGroup>
-		<!--<s:HGroup>
-			
-			<s:Label text="{data.ploeg}"/>
-			<s:Label text="{data.positie}"/>
-			<s:Label text="{data.nummer}"/>
-			
-		</s:HGroup>-->
+		
 		
 	</s:VGroup>
 </s:ItemRenderer>
