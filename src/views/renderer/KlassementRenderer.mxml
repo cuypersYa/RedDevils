@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
-					xmlns:s="library://ns.adobe.com/flex/spark"   >
+					xmlns:s="library://ns.adobe.com/flex/spark"   dataChange="itemrenderer1_dataChangeHandler(event)">
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function itemrenderer1_dataChangeHandler(event:FlexEvent):void
+			{
+				if (data.id=="11"){
+					group.setStyle("fontWeight","bold");
+					group.setStyle("color","red");
+					
+				} 
+			}
+			
+		]]>
+	</fx:Script>
 	<s:VGroup x="5">
 		<s:Label text=" "/>
-		<s:HGroup >
-			<s:Label text="{data.rank}" width="20"/>
+		<s:HGroup id="group">
+			<s:Label id="rank" text="{data.rank}" width="20"/>
 		
-			<s:Label text="{data.description}" width="150"/>
+			<s:Label id="description" text="{data.description}" width="150"/>
 		
-			<s:Label text="{data.punten}" width="40"/>
+			<s:Label id="punten" text="{data.punten}" width="40"/>
 		</s:HGroup>
 		
 		

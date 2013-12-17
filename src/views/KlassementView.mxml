@@ -28,7 +28,9 @@
 			{
 				// TODO Auto-generated method stub
 				newsList.dataProvider= event.result.news.channel;
-				
+				//protected function changeColor(event:Event):void{
+					
+				//}
 				
 			}
 			

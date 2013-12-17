@@ -43,7 +43,8 @@
 	<!--test-->
 	<s:VGroup width="90%" horizontalAlign="center">
 		<s:VGroup>
-			<s:Image source="{data.image}" />
+			<s:Image source="{data.afbeelding}" width="50" height="50"/>
+			<!--<s:Image source="http://yannickcuypers.be/connectDB/ploeg/VKompany.jpg" width="50" height="50"/>-->
 			<s:HGroup>
 				
 			</s:HGroup>
