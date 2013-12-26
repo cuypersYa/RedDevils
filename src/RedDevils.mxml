@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:TabbedViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
-								  xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160"
-								  creationComplete="tabbedviewnavigatorapplication1_creationCompleteHandler(event)">
+								  xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160">
 	<fx:Style>
 		
 		
@@ -23,6 +22,13 @@
 			fontSize: 20;
 			
 		}
+		s|Group #navigationGroup
+		{
+			color: #FF0000;
+			fontSize: 17;
+			fontWeight:bold;
+			
+		}
 		s|ActionBar
 		{
 			chromeColor: #FFF;
@@ -36,132 +42,21 @@
 		} 
 		
 	</fx:Style>
-	<fx:Script>
-		<![CDATA[
-			import com.facebook.graph.FacebookMobile;
-			
-			import mx.events.FlexEvent;
-			/*TEST
-			
-			import spark.events.IndexChangeEvent;
-			
-			private var tabHistory : Array;
-			private var isLoadingFromHistory : Boolean;
-			
-			protected function BackBtn(event : MouseEvent) : void
-			{
-				isLoadingFromHistory = true;
-				if (tabHistory.length == 0)
-				{
-					//buttonMode.display = none;
-					trace("You can't go back any further");
-					tabHistory.push(0);
-				}
-				tabbedNavigator.selectedIndex = tabHistory.pop();
-			}
-			
-			
-			
-			private function tabsChangedHandler(event : IndexChangeEvent) : void
-			{
-				if (isLoadingFromHistory)
-				{
-					isLoadingFromHistory = false;
-					return;
-				}
-				tabHistory.push(event.oldIndex);
-				trace(tabHistory);
-			}
-		
-			
-			/*test*/
-			
-			public var loggedIn:Boolean = false;
-			protected function tabbedviewnavigatorapplication1_creationCompleteHandler(event:FlexEvent):void
-			{
-				// TODO Auto-generated method stub
-				FacebookMobile.init("630767130320379",onLogin,null);
-				//tabHistory = [];
-				//tabbedNavigator.addEventListener(IndexChangeEvent.CHANGE, tabsChangedHandler);
-			}
-			
-			protected function login():void 
-			{
-				var facebookWebView:StageWebView = new StageWebView();
-				facebookWebView.viewPort = new Rectangle(0,0,stage.width, stage.height - 100);
-				var permissions:Array = new Array();
-				FacebookMobile.login(onLogin, this.stage, permissions, facebookWebView);
-			}
-			
-			private function onLogin(succes:Object, fail:Object):void
-			{
-				// TODO Auto Generated method stub
-				loggedIn=true;
-				btn_login.visible=false;
-				btn_login.width=0;
-				btn_logout.visible=true;
-				btn_logout.width=75;
-				if (succes)
-				{
-					trace("succesvol ingelogd");
-				}
-				else
-				{
-					trace("FAIL!");
-				}
-			}
-			protected function logout():void
-			{
-				FacebookMobile.logout();
-				loggedIn=false;
-				btn_login.visible=true;
-				btn_login.width=75;
-				btn_logout.visible=false;
-				btn_logout.width=0;
-			}
-			
-			
-		]]>
-	</fx:Script>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 
 	<s:ViewNavigator id="menu1" width="100%" height="100%" label="Nieuws" firstView="views.NieuwsView"
 					 title="Nieuws" icon="@Embed('images/RDballNY.png')">
-		<!--<s:navigationContent>
-			<s:Button click="BackBtn(event)"
-					  label="Back"/>
-		</s:navigationContent>-->
-		<s:actionContent>
-			<s:Button id="btn_login" label="login" click="login()" visible="true" width="75"/>
-			<s:Button id="btn_logout" label="logout" click="logout()" visible="false" width="0"/>
-		</s:actionContent>
-		
-			
-		
 	</s:ViewNavigator>
-
 	<s:ViewNavigator id="menu2" width="100%" height="100%" label="Team" firstView="views.TeamView"
 					 title="Team" icon="@Embed('images/RDdeviNY.png')">
-		<!--<s:navigationContent>
-			<s:Button click="BackBtn(event)"
-					  label="Back"/>
-		</s:navigationContent>-->
-		</s:ViewNavigator>
+	</s:ViewNavigator>
 	<s:ViewNavigator id="menu3" width="100%" height="100%" label="Kalender" firstView="views.KalenderView"
 					 title="Kalender" icon="@Embed('images/RDcalendarNY.png')">
-		<!--<s:navigationContent>
-			<s:Button click="BackBtn(event)"
-					  label="Back"/>
-		</s:navigationContent>-->
 	</s:ViewNavigator>
 	<s:ViewNavigator id="menu4" width="100%" height="100%" label="Klassement" firstView="views.KlassementView"
 					 title="Klassement" icon="@Embed('images/RDmedalNY.png')">
-		<!--<s:navigationContent>
-			<s:Button click="BackBtn(event)"
-					  label="Back"/>
-		</s:navigationContent>-->
 	</s:ViewNavigator>
 	<!--<s:ViewNavigator width="100%" height="100%" label="LiveScore" firstView="views.LiveScoreView"
 					 title="LiveScoreView" icon="@Embed('images/RDgoalNY.png')"/>-->
