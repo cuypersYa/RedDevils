@@ -11,6 +11,7 @@ package AS
 		public static var loggedIn:Boolean = false;
 		public static var newFacebook:FacebookFnct = new FacebookFnct(320,480);
 		public static var username:String;
+		public static var accesToken:String;
 		public function get username():String
 		{
 			return username;
