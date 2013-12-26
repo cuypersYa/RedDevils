@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+<<<<<<< HEAD
 		xmlns:s="library://ns.adobe.com/flex/spark" title="Kalender"
 		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx"
 		creationComplete="view1_creationCompleteHandler(event)">
+=======
+
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Klassement"
+		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx"
+		creationComplete="view1_creationCompleteHandler(event)">
+		
+>>>>>>> bcf26a0087230579f1df9962517646c6b4d9dd89
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
 		@namespace mx "library://ns.adobe.com/flex/mx";

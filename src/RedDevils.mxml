@@ -13,6 +13,7 @@
 			font-size: 16;
 			selection-color: #FF0000;
 			chrome-color: #FFFFFF;
+			dropShadowVisible:false;
 		}
 		s|ActionBar #titleDisplay
 		{
@@ -20,6 +21,7 @@
 			color: #FF0000; /* default color is white */
 			chromeColor: #FFF;
 			fontSize: 20;
+			dropShadowVisible:false;
 			
 		}
 		s|Group #navigationGroup
@@ -27,11 +29,12 @@
 			color: #FF0000;
 			fontSize: 17;
 			fontWeight:bold;
-			
+			dropShadowVisible:false;			
 		}
 		s|ActionBar
 		{
 			chromeColor: #FFF;
+			dropShadowVisible:false;
 			
 		}
 
@@ -39,7 +42,15 @@
 		{
 			color: #FF0000;
 			chromeColor: #FFF;
+			dropShadowVisible:false;
 		} 
+		s|ViewNavigator
+		{
+			dropShadowVisible:false;
+		}
+		s|Application{
+			dropShadowVisible:false;
+		}
 		
 	</fx:Style>
 	<fx:Declarations>
