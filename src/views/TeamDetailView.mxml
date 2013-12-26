@@ -42,7 +42,7 @@
 	<!--test-->
 	<s:VGroup width="100%" horizontalAlign="center">
 		<s:VGroup>
-			<s:Image source="images/ploeg/{data.afbeelding}" width="50" height="50"/>
+			<!--<s:Image source="images/ploeg/{data.afbeelding}" width="50" height="50"/>-->
 			<!--<s:Image source="images/ploeg/VKompany.jpg" width="50" height="50"/>-->
 			<s:HGroup>
 				
@@ -62,9 +62,8 @@
 				<s:Label text="{data.nummer}"/>
 			</s:HGroup>
 			<s:HGroup>
-				
-					
-				
+				<s:Label text="Positie: " fontWeight="bold"/>
+				<s:Label text="{data.positie}"/>		
 			</s:HGroup>
 			
 			
