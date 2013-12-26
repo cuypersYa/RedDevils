@@ -4,6 +4,8 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.events.FlexEvent;
+			import AS.GlobalVariables;
+			import com.facebook.graph.FacebookMobile;
 			
 			protected function itemrenderer1_dataChangeHandler(event:FlexEvent):void
 			{
@@ -12,8 +14,29 @@
 					group.setStyle("color","red");
 					
 				} 
+				if(GlobalVariables.loggedIn)
+				{
+					shareBtn.visible=true;
+				}
+			}
+			protected function shareBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var params:Object = {};
+				params.message= "Dit las ik op de Red Devils app: ";
+				params.message+= "\n In het klassement staat " + data.description + " op de " + data.rank + "e plaats met " +  data.punten + " punten";
+				/* params.accesToken = GlobalVariables.accesToken; */
+				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
 			}
 			
+			private function shareHandler(result:Object, fail:Object):void
+			{
+				// TODO Auto Generated method stub
+				if(result)
+				{
+					trace('bericht geplaatst');
+				}
+			}			
 		]]>
 	</fx:Script>
 	<s:VGroup x="5">
@@ -26,6 +49,7 @@
 			<s:Label id="punten" text="{data.punten}" width="40"/>
 		</s:HGroup>
 		
-		
+		<s:Button id="shareBtn" label="share on Facebook"
+				  skinClass="skins.facebookShareButton" click="shareBtn_clickHandler(event)" visible="false"/>
 	</s:VGroup>
 </s:ItemRenderer>

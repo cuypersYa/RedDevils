@@ -54,7 +54,8 @@ package AS
 			trace('loginFB');
 			var facebookWebView:StageWebView = new StageWebView();
 			facebookWebView.viewPort = new Rectangle(0,0,stageWidth, stageHeight - 100);
-			var permissions:Array = new Array();
+			var permissions:Array = ["publish_actions"];
+			
 			FacebookMobile.login(onLogin,FlexGlobals.topLevelApplication.stage, permissions, facebookWebView);
 		}
 		
@@ -66,7 +67,8 @@ package AS
 				GlobalVariables.firstName = succes.user.first_name;
 				GlobalVariables.username = succes.user.username;
 				GlobalVariables.loggedIn=true;
-				trace("succesvol ingelogd, naam = " + GlobalVariables.firstName);
+/*				GlobalVariables.accesToken = succes.accesToken;
+*/				trace("succesvol ingelogd, naam = " + GlobalVariables.firstName);
 				dispatchEvent(new Event(ReadLblOk));
 			}
 			else
