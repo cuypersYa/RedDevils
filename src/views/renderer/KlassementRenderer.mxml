@@ -14,7 +14,7 @@
 					group.setStyle("color","red");
 					
 				} 
-				if(GlobalVariables.loggedIn)
+				if(GlobalVariables.loggedIn && data.id=="11")
 				{
 					shareBtn.visible=true;
 				}
