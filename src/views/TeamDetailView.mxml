@@ -13,7 +13,6 @@
 			import mx.events.FlexEvent;
 			
 			
-			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
@@ -43,7 +42,7 @@
 	<!--test-->
 	<s:VGroup width="100%" horizontalAlign="center">
 		<s:VGroup>
-			<s:Image source="{data.afbeelding}" width="50" height="50"/>
+			<s:Image source="images/ploeg/{data.afbeelding}" width="50" height="50"/>
 			<!--<s:Image source="images/ploeg/VKompany.jpg" width="50" height="50"/>-->
 			<s:HGroup>
 				
