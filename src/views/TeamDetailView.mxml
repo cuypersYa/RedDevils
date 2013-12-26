@@ -4,7 +4,7 @@
 		creationComplete="view1_creationCompleteHandler(event)">
 	
 	<s:layout>
-		<s:VerticalLayout horizontalAlign="center" paddingBottom="20" paddingTop="20"/>
+		<s:VerticalLayout paddingTop="20"/>
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
@@ -41,10 +41,10 @@
 		
 	</s:navigationContent > 
 	<!--test-->
-	<s:VGroup width="90%" horizontalAlign="center">
+	<s:VGroup width="100%" horizontalAlign="center">
 		<s:VGroup>
 			<s:Image source="{data.afbeelding}" width="50" height="50"/>
-			<!--<s:Image source="http://yannickcuypers.be/connectDB/ploeg/VKompany.jpg" width="50" height="50"/>-->
+			<!--<s:Image source="images/ploeg/VKompany.jpg" width="50" height="50"/>-->
 			<s:HGroup>
 				
 			</s:HGroup>
