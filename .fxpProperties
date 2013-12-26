@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="a4a205b9-80bc-49ef-848d-f8d508c1e4d0" projectUUID="a4a205b9-80bc-49ef-848d-f8d508c1e4d0" pureCatalystProject="false" sdkVersion="4.6.0" uuid="786196bf-633e-423d-83d8-90c046e71ad3" version="15">
+<fxpProperties abbreviated="false" authoringTool="Flex Builder" compiles="true" parentProject="a4a205b9-80bc-49ef-848d-f8d508c1e4d0" projectUUID="a4a205b9-80bc-49ef-848d-f8d508c1e4d0" pureCatalystProject="false" sdkVersion="4.6.0" uuid="8eff7ab2-0c4f-4cbb-86de-b06741264142" version="15">
   <projects/>
   <src/>
   <swc>
-    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="786196bf-633e-423d-83d8-90c046e71ad3"/>
-    <linked location="/libs" path="\libs" position="1" uuid="786196bf-633e-423d-83d8-90c046e71ad3"/>
+    <linked location="sdkPlaceHolder" path="sdkPlaceHolder" position="0" uuid="8eff7ab2-0c4f-4cbb-86de-b06741264142"/>
+    <linked location="/libs" path="/libs" position="1" uuid="786196bf-633e-423d-83d8-90c046e71ad3"/>
   </swc>
   <misc/>
   <theme/>

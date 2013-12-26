@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" title="Kalender"
-		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx">
+		viewActivate="view1_viewActivateHandler(event)" xmlns:mx="library://ns.adobe.com/flex/mx"
+		creationComplete="view1_creationCompleteHandler(event)">
 	<fx:Style>
 		@namespace s "library://ns.adobe.com/flex/spark";
 		@namespace mx "library://ns.adobe.com/flex/mx";
@@ -13,10 +14,46 @@
 	</fx:Style>
 	<fx:Script>
 		<![CDATA[
+			import AS.FacebookFnct;
+			import AS.GlobalVariables;
+			
+			import mx.events.FlexEvent;
 			import mx.rpc.events.ResultEvent;
 			
 			import spark.events.IndexChangeEvent;
 			import spark.events.ViewNavigatorEvent;
+			
+			private static const ReadLblOk:String = "ok";
+			
+			protected function fbLogin_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				
+				if(GlobalVariables.loggedIn)
+				{
+					GlobalVariables.newFacebook.logout();
+					GlobalVariables.newFacebook.removeEventListener(ReadLblOk, setname);
+					trace(GlobalVariables.loggedIn);
+					GlobalVariables.firstName = "";
+					fbLogin.setStyle("skinClass", skins.facebookInButton);
+					Naam.text="";
+					trace('logoutHandler');
+				}
+				else
+				{
+					GlobalVariables.newFacebook.execFB();
+					GlobalVariables.newFacebook.addEventListener(ReadLblOk, setname);
+					trace('loginHandler');
+				}
+			}
+			protected function setname(event:Event):void
+			{
+				// TODO Auto-generated method stub
+				Naam.text = GlobalVariables.newFacebook.username;
+				if(GlobalVariables.loggedIn)
+					fbLogin.setStyle("skinClass", skins.facebookOutButton);
+				trace ("test: " + GlobalVariables.newFacebook.username + " en loggedIn = " + GlobalVariables.loggedIn);
+			}
 			
 			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
 			{
@@ -45,6 +82,16 @@
 			return data.description + " " + data.score + " "+ data.uit;
 			} */
 			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				// TODO Auto-generated method stub
+				if(GlobalVariables.loggedIn)
+				{
+					fbLogin.setStyle("skinClass", skins.facebookOutButton);
+					
+				}
+			}
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -55,7 +102,13 @@
 		
 		
 	</fx:Declarations>
-	
+	<s:navigationContent>
+		<s:Label id="Naam" text="{GlobalVariables.firstName}"/>
+	</s:navigationContent>
+	<s:actionContent>
+		
+		<s:Button id="fbLogin" skinClass="skins.facebookInButton" click="fbLogin_clickHandler(event)"/>
+	</s:actionContent>
 	
 	<s:List id="newsList" width="90%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KlassementRenderer"/>
 	
