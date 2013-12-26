@@ -9,13 +9,18 @@
 	<fx:Script>
 		<![CDATA[
 			import flash.net.navigateToURL;
-			
+			import com.facebook.graph.FacebookMobile;
 			import mx.events.FlexEvent;
+			import AS.GlobalVariables;
 			
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+				if(GlobalVariables.loggedIn)
+				{
+					shareBtn.visible=true;
+				}
 				
 				/* StyleableTextField(ti1.textDisplay).htmlText = "TextInput <b>bold</b> <i>italic</i>."; */
 			}
@@ -26,7 +31,24 @@
 				//navigateToURL(urlReq, "_self");
 			}
 			
+			protected function shareBtn_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var params:Object = {};
+				params.message= "Dit las ik op de Red Devils app: ";
+				params.message+= data.voornaam + " "  + data.achternaam + " van ploeg " + data.ploeg +", heeft nummer " + data.nummer;
+				/* params.accesToken = GlobalVariables.accesToken; */
+				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
+			}
 			
+			private function shareHandler(result:Object, fail:Object):void
+			{
+				// TODO Auto Generated method stub
+				if(result)
+				{
+					trace('bericht geplaatst');
+				}
+			}
 			
 			
 			
@@ -66,7 +88,8 @@
 				<s:Label text="{data.positie}"/>		
 			</s:HGroup>
 			
-			
+			<s:Button id="shareBtn" label="share on Facebook"
+					  skinClass="skins.facebookShareButton" click="shareBtn_clickHandler(event)" visible="false"/>
 			
 			
 		</s:VGroup>

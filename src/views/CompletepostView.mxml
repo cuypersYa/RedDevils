@@ -20,6 +20,10 @@
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+				if(GlobalVariables.loggedIn)
+				{
+					shareBtn.visible=true;
+				}
 				
 				/* StyleableTextField(ti1.textDisplay).htmlText = "TextInput <b>bold</b> <i>italic</i>."; */
 			}
@@ -33,7 +37,22 @@
 			protected function shareBtn_clickHandler(event:MouseEvent):void
 			{
 				// TODO Auto-generated method stub
-				FacebookMobile.postData("/me", null, data.description);
+				var params:Object = {};
+				params.message= "Dit las ik op de Red Devils app: ";
+				params.message+= data.description ;
+				params.message+= "\n Hier is de link van de website: ";
+				params.message+= data.link;
+				/* params.accesToken = GlobalVariables.accesToken; */
+				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
+			}
+			
+			private function shareHandler(result:Object, fail:Object):void
+			{
+				// TODO Auto Generated method stub
+				if(result)
+				{
+					trace('bericht geplaatst');
+				}
 			}
 			
 		]]>
@@ -45,7 +64,7 @@
 		
 		<s:Label width="100%" height="100%" text="{data.description}"/>
 		<s:Button id="shareBtn" label="share on Facebook"
-				  skinClass="skins.facebookShareButton" click="shareBtn_clickHandler(event)"/>
+				  skinClass="skins.facebookShareButton" click="shareBtn_clickHandler(event)" visible="false"/>
 		<s:Label id="link" text="Bekijk het artikel op de website" width="100%"/>
 		
 	</s:VGroup>
