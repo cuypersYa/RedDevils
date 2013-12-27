@@ -1,7 +1,7 @@
 package AS
 {
 	/*
-	In deze klasse worden de constructor en methodes voor het initialiseren van facebook uitgeschreven.	
+	In deze klasse worden de constructor en methodes voor het initialiseren, aan- en uitloggen en posten van berichten via facebook uitgeschreven.	
 	*/
 	import AS.GlobalVariables;
 	
@@ -92,7 +92,7 @@ package AS
 				trace("FAIL!");
 			}
 		}
-		/* de gebruiker log uit van FB*/
+		/* de gebruiker logt uit van FB*/
 		public function logout():void
 		{
 			FacebookMobile.logout(onLogout, 
