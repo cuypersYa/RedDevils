@@ -69,16 +69,7 @@
 				
 			}
 			
-			protected function newsList_changeHandler(event:IndexChangeEvent):void
-			{
-				// ga naar volgende view en geef channelID mee!!
-				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
-				
-			}
-			/* protected function getItems(value:Object):String
-			{
-				return data.description + " " + data.score + " "+ data.uit;
-			} */
+			
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
@@ -88,6 +79,7 @@
 					fbLogin.setStyle("skinClass", skins.facebookOutButton);
 				}
 			}
+			
 			
 		]]>
 	</fx:Script>
@@ -105,6 +97,6 @@
 		<s:Button id="fbLogin" skinClass="skins.facebookInButton" click="fbLogin_clickHandler(event)"/>
 	</s:actionContent>
 	
-<s:List id="newsList" width="90%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KalenderRenderer"/>
+<s:List id="newsList" width="90%" height="100%"  itemRenderer="views.renderer.KalenderRenderer"/>
 
 </s:View>
