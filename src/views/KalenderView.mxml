@@ -22,11 +22,23 @@
 			
 			import spark.events.IndexChangeEvent;
 			import spark.events.ViewNavigatorEvent;
+			//Deze string hebben we nodig om vanuit de FacebookFnct klasse de setName functie te laten uitvoeren.
 			private static const ReadLblOk:String = "ok";
 			
 			protected function fbLogin_clickHandler(event:MouseEvent):void
 			{
-				// TODO Auto-generated method stub
+				/*
+				Deze functie is de handler van de in- en uitlog knop van FB. Deze is bij alle views hetzelfde.
+				Als de globale variabele loggedIn true is, is de gerbuiker ingelogd en moet de handler uitloggen.
+				Bij false wilt de gebruiker inloggen.
+				
+				Bij het inloggen wordt door het object GlobalVariablmes.newFacebook de methode FacebookMobile.login opgeroepen.
+				De Voornaam van de gebruiker mag nu ook uitgelezen worden en worden getoond in de navigationContent.
+				
+				Bij het uitloggen roepen we dus de FacebookMobile.logout methode op via he aangemaakte opbject.
+				De voornaam van de gebruiker mag worden vergeten en verdwijnen uit de navigationContent.
+				De skin van de button moet nu een worden om in te loggen.
+				*/
 				
 				if(GlobalVariables.loggedIn)
 				{
@@ -40,14 +52,16 @@
 				}
 				else
 				{
-					GlobalVariables.newFacebook.execFB();
+					GlobalVariables.newFacebook.loginFB();
 					GlobalVariables.newFacebook.addEventListener(ReadLblOk, setname);
 					trace('loginHandler');
 				}
 			}
 			protected function setname(event:Event):void
 			{
-				// TODO Auto-generated method stub
+				// Hier wordt de globale variabele met als waarde de ingelogde gebruikers voornaam uitgelezen en in de navigationContent gezet.
+				// Tegelijk weten we nu dat er ingelogd is en dat de skin van de in- en uitlog button mag veranderen naar logout.
+				
 				Naam.text = GlobalVariables.newFacebook.username;
 				if(GlobalVariables.loggedIn)
 					fbLogin.setStyle("skinClass", skins.facebookOutButton);
@@ -82,7 +96,8 @@
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-				// TODO Auto-generated method stub
+				// Bij het genereren van deze view wordt oa gecontroleerd of de gebruiker al is ingelogd.
+				// Indien ja, mag de default skin (login) veranderd worden naar logout.
 				if(GlobalVariables.loggedIn)
 				{
 					fbLogin.setStyle("skinClass", skins.facebookOutButton);

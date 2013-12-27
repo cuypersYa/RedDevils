@@ -20,6 +20,7 @@
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+				//Alleen als er ingelogd is, kan de gebuiker iets op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
 				if(GlobalVariables.loggedIn)
 				{
 					shareBtn.visible=true;
@@ -36,13 +37,13 @@
 			
 			protected function shareBtn_clickHandler(event:MouseEvent):void
 			{
-				// TODO Auto-generated method stub
+				//In deze handler zorgen we ervoor dat de gewenste feed, geshared kan worden op de gebruikers wall van FB.
+				//We zorgen dat deze 'status' netjes is opgemaakt.
 				var params:Object = {};
 				params.message= "Dit las ik op de Red Devils app: ";
 				params.message+= data.description ;
 				params.message+= "\n Hier is de link van de website: ";
 				params.message+= data.link;
-				/* params.accesToken = GlobalVariables.accesToken; */
 				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
 			}
 			

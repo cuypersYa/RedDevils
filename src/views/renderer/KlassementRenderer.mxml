@@ -14,6 +14,7 @@
 					group.setStyle("color","red");
 					
 				} 
+				//Alleen als er ingelogd is EN het is de ranking van België, kan de gebuiker dit op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
 				if(GlobalVariables.loggedIn && data.id=="11")
 				{
 					shareBtn.visible=true;
@@ -21,11 +22,11 @@
 			}
 			protected function shareBtn_clickHandler(event:MouseEvent):void
 			{
-				// TODO Auto-generated method stub
+				//In deze handler zorgen we ervoor dat de gewenste feed, geshared kan worden op de gebruikers wall van FB.
+				//We zorgen dat deze 'status' netjes is opgemaakt.
 				var params:Object = {};
 				params.message= "Dit las ik op de Red Devils app: ";
 				params.message+= "\n In het klassement staat " + data.description + " op de " + data.rank + "e plaats met " +  data.punten + " punten";
-				/* params.accesToken = GlobalVariables.accesToken; */
 				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
 			}
 			

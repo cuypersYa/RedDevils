@@ -1,5 +1,8 @@
 package AS
 {
+	/*
+	In deze klasse worden de constructor en methodes voor het initialiseren van facebook uitgeschreven.	
+	*/
 	import AS.GlobalVariables;
 	
 	import com.facebook.graph.FacebookMobile;
@@ -14,14 +17,20 @@ package AS
 
 	public class FacebookFnct extends EventDispatcher
 	{
+		/*
+		Bij het aanmaken van het object worden de breedte en hoogte van de stage meegegeven.
+		*/
 		private var stageWidth:Number;
 		private var stageHeight:Number;
-		private var stage:Stage;
-		public var uName:String;
-		public static var stage:Stage = null;
+		/*
+		Volgende string dient voor het plaatsen van de voornaam in de navigationContent. 
+		We hebben deze nodig om in de klasse een functie van de view op te roepen (zodat de volgorde wordt gerespecteerd)
+		*/
 		private static const ReadLblOk:String = "ok";
 		
-		
+		/*
+		Getter en setter om in de views de voornaam te kunnen uitlezen.
+		*/
 		
 		[Bindable]
 		public function get username():String
@@ -32,7 +41,11 @@ package AS
 		{
 		}
 
-		
+		/*
+		contructor voor het object.
+		Hier worden de stagebreedte en stagehoogte meegegeven.
+		De intitialisatie met de geregistreerde FBapp wordt alvast gestart
+		*/
 		public function FacebookFnct(stage_width:Number, stage_height:Number)
 		{
 			stageWidth = stage_width;
@@ -42,13 +55,12 @@ package AS
 			trace('FacebookFnct');
 				
 		}
-		public function execFB():void
-		{
-			loginFB();
-			trace ('execFB');
-		}
 		
-		protected function loginFB():void 
+		/*
+		Deze functie wordt in de view opgeroepen als de gebruker wilt inloggen.
+		hier gebeurt de eigenlijke login op FB
+		*/
+		public function loginFB():void 
 		{
 			
 			trace('loginFB');
@@ -59,16 +71,20 @@ package AS
 			FacebookMobile.login(onLogin,FlexGlobals.topLevelApplication.stage, permissions, facebookWebView);
 		}
 		
+		/*
+		de callback functie van de login. Hierin weten we of er succesvol is ingelogd.
+		
+		*/
 		private function onLogin(succes:Object, fail:Object):void
 		{
 			// TODO Auto Generated method stub
 			if (succes)
+				/* Indien succes mag de info van de gebruiker opgehaald worden en de globale boolean loggedIn op true wordt gezet.*/
 			{
 				GlobalVariables.firstName = succes.user.first_name;
 				GlobalVariables.username = succes.user.username;
 				GlobalVariables.loggedIn=true;
-/*				GlobalVariables.accesToken = succes.accesToken;
-*/				trace("succesvol ingelogd, naam = " + GlobalVariables.firstName);
+				/*Gebruikers voornaam mag nu in de navigationContent*/
 				dispatchEvent(new Event(ReadLblOk));
 			}
 			else
@@ -76,27 +92,19 @@ package AS
 				trace("FAIL!");
 			}
 		}
-		
-		/*public function buttonFbHandler():void
-		{
-			if(GlobalVariables.loggedIn)
-			{
-				GlobalVariables.newFacebook.logout();
-				//GlobalVariables.newFacebook.removeEventListener(ReadLblOk, setname);
-				trace(GlobalVariables.loggedIn);
-				GlobalVariables.firstName = "";
-				//target.setStyle("skinClass", skins.facebookInButton);
-				//Naam.text="";
-				trace('logoutHandler');
-			}
-		}*/
-		
+		/* de gebruiker log uit van FB*/
 		public function logout():void
 		{
-			FacebookMobile.logout(onLogout, 'tim.lammar.be');
+			FacebookMobile.logout(onLogout, 
+								'https://m.facebook.com/dialog/permissions.request?' +
+								'app_id=630767130320379&' +
+								'display=touch&' +
+								'type=user_agent&perms=publish_stream&fbconnect=1');
 			GlobalVariables.loggedIn=false;
+			FacebookMobile.manageSession=false;
 			
 		}
+		/*callback functie van logout*/
 		private function onLogout(result:Object):void
 		{
 			// TODO Auto Generated method stub
