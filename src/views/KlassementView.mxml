@@ -72,30 +72,20 @@
 			
 			protected function view1_viewActivateHandler(event:ViewNavigatorEvent):void
 			{
-				// TODO Auto-generated method stub
+				// verstuur request
 				newsChannels.send();
 			}
 			
 			protected function newsChannels_resultHandler(event:ResultEvent):void
 			{
-				// TODO Auto-generated method stub
+				// selecteer item from feed
 				newsList.dataProvider= event.result.news.channel;
-				//protected function changeColor(event:Event):void{
-					
-				//}
+				
 				
 			}
 			
-			protected function newsList_changeHandler(event:IndexChangeEvent):void
-			{
-				// ga naar volgende view en geef channelID mee!!
-				//navigator.pushView(ItemsPerChannel,newsList.selectedItem);
-				
-			}
-			/* protected function getItems(value:Object):String
-			{
-			return data.description + " " + data.score + " "+ data.uit;
-			} */
+			
+			
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
@@ -108,6 +98,7 @@
 					
 				}
 			}
+			
 			
 		]]>
 	</fx:Script>
@@ -127,6 +118,6 @@
 		<s:Button id="fbLogin" skinClass="skins.facebookInButton" click="fbLogin_clickHandler(event)"/>
 	</s:actionContent>
 	
-	<s:List id="newsList" width="90%" height="100%" change="newsList_changeHandler(event)" itemRenderer="views.renderer.KlassementRenderer"/>
+	<s:List id="newsList" width="90%" height="100%"  itemRenderer="views.renderer.KlassementRenderer"/>
 	
 </s:View>

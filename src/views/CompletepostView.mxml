@@ -19,6 +19,7 @@
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
+				//selecteer de link en gaNaarLink
 				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
 				//Alleen als er ingelogd is, kan de gebuiker iets op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
 				if(GlobalVariables.loggedIn)
@@ -31,6 +32,7 @@
 			
 			protected function gaNaarLink(event:MouseEvent):void
 			{
+				//ontvang de link en maak er een url van om het volledige artikel te lezen
 				var urlReq:URLRequest = new URLRequest(data.link);
 				navigateToURL(urlReq, "_self");
 			}

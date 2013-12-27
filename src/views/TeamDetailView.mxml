@@ -16,21 +16,19 @@
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+
+				
 				//Alleen als er ingelogd is, kan de gebuiker iets op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
+
 				if(GlobalVariables.loggedIn)
 				{
 					shareBtn.visible=true;
 				}
 				
-				/* StyleableTextField(ti1.textDisplay).htmlText = "TextInput <b>bold</b> <i>italic</i>."; */
+				
 			}
 			
-			protected function gaNaarLink(event:MouseEvent):void
-			{
-				var urlReq:URLRequest = new URLRequest(data.link);
-				//navigateToURL(urlReq, "_self");
-			}
+			
 			
 			protected function shareBtn_clickHandler(event:MouseEvent):void
 			{
@@ -62,11 +60,10 @@
 		
 		
 	</s:navigationContent > 
-	<!--test-->
+
 	<s:VGroup width="100%" horizontalAlign="center">
 		<s:VGroup>
-			<!--<s:Image source="images/ploeg/{data.afbeelding}" width="50" height="50"/>-->
-			<!--<s:Image source="images/ploeg/VKompany.jpg" width="50" height="50"/>-->
+			
 			<s:HGroup>
 				
 			</s:HGroup>

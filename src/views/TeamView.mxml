@@ -72,14 +72,16 @@
 			
 			protected function devblogService_resultHandler(event:ResultEvent):void
 			{
+				//select het item van feed
 				devblogList.dataProvider=event.result.news.channel;
 			}
 			
 			protected function devblogList_changeHandler(event:IndexChangeEvent):void
 			{
+				//selecteer item en ga naar detailview
 				navigator.pushView(TeamDetailView, List(event.currentTarget).selectedItem);
 			}
-			/* test */
+			
 			
 		]]>
 	</fx:Script>
