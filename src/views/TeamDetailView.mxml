@@ -16,12 +16,10 @@
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-<<<<<<< HEAD
-				//link.addEventListener(MouseEvent.CLICK, gaNaarLink);
-=======
-				link.addEventListener(MouseEvent.CLICK, gaNaarLink);
+
+				
 				//Alleen als er ingelogd is, kan de gebuiker iets op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
->>>>>>> 61305db8faf4b63bd109763f69c6b7e0d233a216
+
 				if(GlobalVariables.loggedIn)
 				{
 					shareBtn.visible=true;
@@ -62,7 +60,7 @@
 		
 		
 	</s:navigationContent > 
-	<!--test-->
+
 	<s:VGroup width="100%" horizontalAlign="center">
 		<s:VGroup>
 			
