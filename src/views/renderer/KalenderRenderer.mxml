@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:ItemRenderer xmlns:fx="http://ns.adobe.com/mxml/2009" 
-
+					creationComplete="itemrenderer1_creationCompleteHandler(event)"
 					xmlns:s="library://ns.adobe.com/flex/spark"  >
 	
 	<fx:Script>
@@ -12,11 +12,12 @@
 			import mx.events.FlexEvent;
 			protected function shareBtn_clickHandler(event:MouseEvent):void
 			{
-				// TODO Auto-generated method stub
+				//In deze handler zorgen we ervoor dat de gewenste feed, geshared kan worden op de gebruikers wall van FB.
+				//We zorgen dat deze 'status' netjes is opgemaakt.
+				
 				var params:Object = {};
 				params.message= "Dit las ik op de Red Devils app: ";
 				params.message+= "\n" + data.title + "\n " + data.description + " " +  data.score + " " + data.uit + "\n" + data.plaats;
-				/* params.accesToken = GlobalVariables.accesToken; */
 				FacebookMobile.api("/me/feed", shareHandler, params,"POST");
 			}
 			
@@ -31,13 +32,14 @@
 			
 			protected function itemrenderer1_creationCompleteHandler(event:FlexEvent):void
 			{
-				// TODO Auto-generated method stub
+				//Alleen als er ingelogd is, kan de gebuiker iets op zijn wall van FB plaatsen, zo niet is de sharebutton niet zichtbaar
 				if(GlobalVariables.loggedIn)
 				{
 					shareBtn.visible=true;
 				}
 				
 			}
+			
 			
 		]]>
 	</fx:Script>
