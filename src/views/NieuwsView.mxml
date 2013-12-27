@@ -60,11 +60,13 @@
 			
 			protected function devblogService_resultHandler(event:ResultEvent):void
 			{
+				//selecteer item
 				devblogList.dataProvider=event.result.rss.channel.item;
 			}
 			
 			protected function devblogList_changeHandler(event:IndexChangeEvent):void
 			{
+				//get item en stuur naar completepostview
 				navigator.pushView(CompletepostView, List(event.currentTarget).selectedItem);
 			}
 			
@@ -82,16 +84,7 @@
 		
 		<s:Button id="fbLogin" skinClass="skins.facebookInButton" click="fbLogin_clickHandler(event)"/>
 	</s:actionContent>
-	<s:SpinnerListContainer x="-1" y="-76" width="767" height="43">
-		<s:SpinnerList width="766" height="55" labelField="data" selectedIndex="1">
-			<s:ArrayList>
-				<fx:Object data="data1"></fx:Object>
-				<fx:Object data="data2"></fx:Object>
-				<fx:Object data="data3"></fx:Object>
-				<fx:Object data="data4"></fx:Object>
-			</s:ArrayList>
-		</s:SpinnerList>
-	</s:SpinnerListContainer>
+	
 	<s:List id="devblogList" height="100%" width="100%" change="devblogList_changeHandler(event)">
 		<s:itemRenderer>
 			<fx:Component>
